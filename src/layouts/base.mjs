@@ -1,0 +1,7 @@
+import { header } from '../components/header.mjs';
+import { footer } from '../components/footer.mjs';
+export function layout({ title, description, path, content, noindex = false }) {
+  return `<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101f2b"><title>${title}</title><meta name="description" content="${description}">${noindex ? '<meta name="robots" content="noindex, follow">' : ''}<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="AAFJ Advocacia"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles/global.css">${path === '/' ? '<link rel="stylesheet" href="/styles/hero.css"><link rel="stylesheet" href="/styles/practice-areas.css">' : ''}${path === '/' || path === '/o-escritorio/' ? '<link rel="stylesheet" href="/styles/office.css">' : ''}${path === "/" || path === "/contato/" ? '<link rel="stylesheet" href="/styles/contact.css"><script type="module" src="/scripts/contact.js"></script>' : ""}<script type="module" src="/scripts/main.js"></script></head>
+<body>${header(path)}<main id="conteudo" tabindex="-1">${content}</main>${footer()}</body></html>`;
+}

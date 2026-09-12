@@ -1,0 +1,42 @@
+/* Shared by the Home section and the institutional page. */
+.office-section { background: #eeebe4; border-top: 1px solid var(--line); padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+.office-grid { display: grid; grid-template-areas: 'heading' 'portrait' 'content'; gap: 2rem; }
+.office-heading { grid-area: heading; min-width: 0; }
+.office-heading .eyebrow { margin-bottom: 1.25rem; }
+.office-heading h1, .office-heading h2 { font-family: var(--font-heading); font-size: clamp(2.1rem, 3.8vw, 3.25rem); font-weight: 400; line-height: 1.15; letter-spacing: -.035em; margin-bottom: 0; }
+.office-figure { grid-area: portrait; min-width: 0; width: 100%; max-width: 30rem; margin: 0; }
+.office-photo { position: relative; aspect-ratio: 4 / 5; background: var(--navy); }
+.office-photo::after { content: ''; position: absolute; inset: 1rem; border: 1px solid #b8a17c70; pointer-events: none; }
+.office-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.office-photo-placeholder { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; padding: 2rem; }
+.office-art { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding-block: 3rem; color: var(--gold); }
+.office-art::before { content: ''; position: absolute; width: 60%; inset-block: 0; border-top: 1px solid #b8a17c40; border-bottom: 1px solid #b8a17c40; }
+.office-art > span:first-child { font: clamp(2.75rem, 6vw, 4.75rem)/1.1 var(--font-heading); letter-spacing: .08em; }
+.office-art > span:last-child { font-size: .6rem; letter-spacing: .35em; margin-top: .8rem; }
+.office-photo-placeholder p { color: #c5cbd0; font-size: .75rem; line-height: 1.8; text-align: center; margin: 0; }
+.office-lawyer { display: flex; flex-direction: column; gap: .4rem; margin-top: 1.5rem; padding-left: 1rem; border-left: 2px solid var(--gold); }
+.office-lawyer > span:first-child { font: 1.3rem/1.4 var(--font-heading); }
+.office-lawyer > span:last-child { font-size: .7rem; color: var(--muted); letter-spacing: .08em; }
+.office-location { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .7rem; margin: 1.25rem 0 0; }
+.office-location .icon { color: var(--gold-dark); width: 1rem; }
+.office-copy { grid-area: content; min-width: 0; }
+.office-description { color: var(--muted); font-size: .95rem; line-height: 1.9; }
+.office-description p { margin-bottom: 1.25rem; }
+.office-description p:last-child { margin-bottom: 0; }
+.office-values { display: grid; list-style: none; padding: 0; margin: 2rem 0; }
+.office-values li { display: flex; align-items: center; gap: .8rem; padding-block: 1rem; border-top: 1px solid #d2cbbf; font-size: .85rem; line-height: 1.6; }
+.office-values li:last-child { border-bottom: 1px solid #d2cbbf; }
+.office-values li > span { flex-shrink: 0; width: .3rem; height: .3rem; border: 1px solid var(--gold-dark); transform: rotate(45deg); }
+.office-copy > .button { max-width: 100%; gap: 1rem; }
+@media (min-width: 40rem) {
+  .office-grid { gap: 2.5rem; }
+  .office-figure { justify-self: center; }
+  .office-values { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .office-values li:last-child { grid-column: 1 / -1; }
+}
+@media (min-width: 64rem) {
+  .office-grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); grid-template-areas: 'portrait heading' 'portrait content'; column-gap: clamp(3rem, 6vw, 6rem); row-gap: 2rem; }
+  .office-figure { align-self: start; justify-self: start; margin-top: 3.25rem; }
+  .office-photo::after { inset: 1.5rem; }
+  .office-values { margin-block: 2rem 2.5rem; }
+}
