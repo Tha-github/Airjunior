@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node --watch --watch-path=src --watch-path=public --watch-path=scripts scripts/serve.mjs",
     "build": "node scripts/build.mjs",
+    "build:pages": "node scripts/build.mjs --root",
     "preview": "node scripts/serve.mjs --production",
     "test": "npm run build && playwright test"
   },
