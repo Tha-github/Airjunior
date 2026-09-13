@@ -20,7 +20,7 @@ export function hero() {
         <p class="hero-description">Atendimento próximo, orientação clara e estratégia personalizada para pessoas físicas e jurídicas em Porto Alegre e região.</p>
         <div class="intro-actions hero-actions">
           ${button('Fale com nossa equipe', site.whatsapp)}
-          <a class="text-link" href="/areas-de-atuacao/">Conheça nossas áreas de atuação ${icon('northeast')}</a>
+          <a class="text-link" href="/#areas-de-atuacao">Conheça nossas áreas de atuação ${icon('northeast')}</a>
         </div>
       </div>
       <figure class="hero-profile">

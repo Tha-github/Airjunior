@@ -1,7 +1,7 @@
 import { site } from '../data/site.mjs';
 import { brand, icon } from './ui.mjs';
 
-export function footer() {
+export function footer({ hideFloatingWhatsApp = false } = {}) {
   return `<footer class="site-footer">
     <div class="container footer-main">
       <div class="footer-identity">${brand(true)}<p class="footer-tagline">Proximidade no atendimento.<br>Seriedade em cada detalhe.</p><p>${site.lawyer}<br>${site.registration}</p></div>
@@ -10,6 +10,6 @@ export function footer() {
     </div>
     <div class="container footer-bottom"><small>© ${new Date().getFullYear()} AAFJ Advocacia | Todos os direitos reservados | Site criado por <a class="footer-credit" href="https://topsitebr.com.br"><strong>Top Site</strong></a></small><nav aria-label="Informações de privacidade"><a href="/politica-de-privacidade/">Política de Privacidade</a><a href="/cookies/">Cookies</a></nav></div>
   </footer>
-  <a class="whatsapp-float" href="${site.whatsapp}" aria-label="Fale pelo WhatsApp">${icon('whatsapp')}<span>Fale pelo WhatsApp</span></a>
+  <a class="whatsapp-float"${hideFloatingWhatsApp ? ' hidden' : ''} href="${site.whatsapp}" aria-label="Fale pelo WhatsApp">${icon('whatsapp')}<span>Fale pelo WhatsApp</span></a>
   <aside class="cookie-notice" aria-label="Aviso de cookies" hidden><div><strong>Sua privacidade importa.</strong><p>Esta versão não utiliza cookies de análise ou publicidade. Guardamos apenas a confirmação deste aviso no seu navegador. <a href="/cookies/">Saiba mais</a></p></div><button class="button button--small" data-dismiss-cookies>Entendi</button></aside>`;
 }

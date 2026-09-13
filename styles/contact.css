@@ -14,7 +14,7 @@
 .contact-whatsapp .button:hover { background: var(--gold-gradient); }
 .contact-whatsapp :focus-visible { outline-color: var(--gold); }
 .contact-channel { padding-top: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--line); }
-.contact-channel h3 { font: 500 .7rem/1.5 var(--font-body); text-transform: uppercase; letter-spacing: .13em; color: var(--gold-dark); margin: 0 0 .5rem;  background-image: var(--gold-gradient-ink); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
+.contact-channel h3 { font: 500 .7rem/1.5 var(--font-body); text-transform: uppercase; letter-spacing: .13em; color: var(--gold-dark); margin: 0 0 .5rem;  background-image: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
 .contact-channel address, .contact-channel > a { font-size: .875rem; }
 .contact-email { display: inline-flex; min-height: 2.75rem; align-items: center; overflow-wrap: anywhere; }
 .contact-channel .social-links { margin-top: 0; gap: 1.5rem; }

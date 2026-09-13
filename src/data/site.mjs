@@ -1,5 +1,3 @@
-import { legalContent } from './legal-content.mjs';
-
 export const site = {
   name: 'AAFJ Advocacia',
   lawyer: 'Air Alves Freitas Júnior',
@@ -26,4 +24,7 @@ export const areas = [
   ['Direito de Família e Sucessões', 'direito-de-familia-e-sucessoes', 'Divórcio, guarda, alimentos, inventários e partilhas.', 'family'],
   ['Direito Previdenciário', 'direito-previdenciario', 'Benefícios, aposentadorias e revisões perante o INSS.', 'calendar'],
   ['Direito Criminal', 'direito-criminal', 'Defesa técnica e acompanhamento nas diferentes fases do processo.', 'shield'],
-].map(([name, slug, description, iconName]) => ({ name, slug, description, iconName, ...legalContent[slug], legacyHref: `/areas-de-atuacao/${slug}/`, href: `/${legalContent[slug].route}/` }));
+].map(([name, slug, description, iconName]) => ({
+  name, slug, description, iconName,
+  whatsapp: `${site.whatsapp}?text=${encodeURIComponent(`Olá! Gostaria de atendimento em ${name}.`)}`,
+}));

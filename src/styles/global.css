@@ -12,6 +12,7 @@
   --gold-text-light: #806323;
   --gold-gradient: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 38%, var(--gold) 65%, #b99543 100%);
   --gold-gradient-ink: linear-gradient(90deg, var(--gold-dark), var(--gold-text-light) 40%, var(--gold-dark) 70%, var(--gold-shadow));
+  --gold-gradient-vertical: linear-gradient(180deg, var(--gold), var(--gold-light) 38%, var(--gold) 65%, #b99543);
   --gold-dark: #71551f;
   --paper: #f7f5f0;
   --white: #ffffff;
@@ -72,14 +73,14 @@ main:focus { outline: none; }
 .brand-wordmark { font-family: var(--font-heading); font-size: 1.65rem; letter-spacing: .12em; line-height: 1.2; }
 .brand-wordmark > span { display: block; font-family: var(--font-body); font-size: .55rem; letter-spacing: .32em; margin-top: .25rem; }
 .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 7px; width: 48px; height: 48px; border: 1px solid var(--line); background: transparent; }
-.menu-toggle span { width: 22px; height: 1px; background: var(--gold-gradient-ink); margin-inline: auto; transition: transform var(--transition); }
+.menu-toggle span { width: 22px; height: 1px; background: var(--gold-gradient); margin-inline: auto; transition: transform var(--transition); }
 .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
 .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
 .navigation { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 1.25rem var(--gutter) 2rem; max-height: calc(100dvh - 5.75rem); overflow-y: auto; background: var(--paper); border-bottom: 1px solid var(--line); }
 .navigation.is-open { display: flex; flex-direction: column; }
 .navigation > a:not(.button), summary { display: flex; align-items: center; min-height: 3.25rem; font-size: .9rem; text-decoration: none; }
-.navigation > a[aria-current], .areas-dropdown[data-active] > summary { color: var(--gold-dark);  background-image: var(--gold-gradient-ink); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
-.navigation > a:not(.button):hover, summary:hover { color: var(--gold-dark);  background-image: var(--gold-gradient-ink); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
+.navigation > a[aria-current], .areas-dropdown[data-active] > summary { color: var(--gold-dark);  background-image: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
+.navigation > a:not(.button):hover, summary:hover { color: var(--gold-dark);  background-image: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
 .navigation > .button { margin-top: 1rem; }
 summary { cursor: pointer; list-style: none; gap: .4rem; }
 summary::-webkit-details-marker { display: none; }
@@ -89,10 +90,13 @@ details[open] > summary .icon { transform: rotate(180deg); }
 .dropdown-label { display: block; color: var(--muted); font-size: .6rem; letter-spacing: .16em; padding: .75rem; }
 .dropdown-panel a { display: flex; align-items: center; min-height: 2.75rem; padding: .5rem .75rem; text-decoration: none; font-size: .875rem; }
 .dropdown-panel a:hover, .dropdown-panel a:focus-visible, .dropdown-panel a[aria-current] { background: var(--gold-gradient); color: var(--navy); -webkit-text-fill-color: currentColor; background-clip: border-box; }
-.navigation > a:not(.button), .navigation summary, .dropdown-panel a, .dropdown-label { color: var(--gold-dark); background-image: var(--gold-gradient-ink); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.navigation > a:not(.button), .navigation summary, .dropdown-panel a, .dropdown-label { color: var(--gold-dark); background-image: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .navigation > a:not(.button):is(:hover, :focus-visible, [aria-current]), .navigation summary:is(:hover, :focus-visible) { text-decoration: underline; text-decoration-color: var(--gold-dark); text-underline-offset: 6px; }
 .navigation summary .icon { color: var(--gold-dark); stroke: var(--icon-gold-stroke); }
 .menu-toggle:is(:hover, :focus-visible, [aria-expanded="true"]) { border-color: var(--gold); border-image: var(--gold-gradient) 1; }
+.menu-toggle { border-color: var(--gold); border-image: var(--gold-gradient) 1; }
+.navigation summary { background-size: 100% 100%; }
+.navigation > .button { border-color: var(--gold); border-image: var(--gold-gradient) 1; }
 .eyebrow { display: flex; align-items: center; gap: .75rem; color: var(--gold-dark); font-size: .65rem; font-weight: 600; letter-spacing: .18em; margin-bottom: 1.75rem;  background-image: var(--gold-gradient-ink); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
 .eyebrow > span { width: 1.8rem; height: 1px; background: var(--gold-gradient); }
 .eyebrow { width: fit-content; max-width: 100%; background-size: 100% 100%; background-repeat: no-repeat; }
@@ -192,6 +196,13 @@ html:not(.js) .navigation { display: flex; position: static; flex-direction: col
 }
 
 .footer-main .text-link .icon { color: var(--gold);  stroke: var(--icon-gold-stroke);}
+.button { position: relative; text-align: center; }
+.button:has(> .icon) { display: inline-flex; align-items: center; justify-content: center; padding-inline: 1.25rem; gap: .75rem; }
+.button > .icon { position: static; transform: none; display: block; flex: 0 0 1.125rem; width: 1.125rem; height: 1.125rem; margin: 0; align-self: center; }
+.text-link, .card-more { text-align: center; align-items: center; }
+.text-link > .icon, .card-more > .icon { display: block; flex-shrink: 0; align-self: center; }
+main .eyebrow.eyebrow { gap: 0; background-image: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+main .eyebrow > span { display: none; }
 
 /* Preserve SVG strokes inside clipped gold text; use local SVG paint servers. */
 .icon { -webkit-text-fill-color: initial; }

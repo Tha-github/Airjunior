@@ -1,12 +1,16 @@
 /* Mobile composition only; tablet and desktop retain their existing rules. */
 @media (max-width: 39.999rem) {
   .principles-band { display: none; }
+  main .eyebrow.eyebrow { background-image: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; gap: 0; }
+  main .eyebrow > span { display: none; }
+  .lawyer-section .office-lawyer, .lawyer-section .office-location { display: none; }
+  .lawyer-registration-mobile { display: block; margin: .65rem 0 0; font-size: .75rem; letter-spacing: .08em; color: var(--muted); }
+  .contact-channels > .contact-channel { display: none; }
   main, .site-footer, .cookie-notice { text-align: center; }
   .eyebrow, .lead, .hero-description, .areas-description, .office-profile,
   .contact-heading, .prose { margin-inline: auto; }
   .eyebrow, .intro-actions, .social-links, .office-location,
-  .contact-channel-label, .footer-bottom nav, .legal-breadcrumb ol,
-  .legal-signature { justify-content: center; }
+  .contact-channel-label, .footer-bottom nav { justify-content: center; }
   .button { max-width: 100%; }
   .intro-actions, .areas-contact, .card--detail { align-items: center; }
   .card--detail > .card-area-icon { align-self: center; }
@@ -55,14 +59,15 @@
   .office-grid--institution .office-description { order: 1; }
   .office-building { order: 2; align-self: center; }
   .office-grid--institution .office-values {
-    order: 3; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr) minmax(0, 1.2fr) minmax(0, 1.6fr) minmax(0, 1.6fr);
-    width: 100%; gap: .35rem; margin: 0;
+    order: 3; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%; gap: .5rem 1rem; margin: 0;
   }
   .office-values li {
     min-width: 0; flex-direction: column; justify-content: flex-start;
-    gap: .5rem; padding-block: .5rem; font-size: clamp(.45rem, 2.3vw, .625rem);
+    gap: .5rem; padding-block: .5rem; font-size: .8rem;
     line-height: 1.5; overflow-wrap: anywhere; hyphens: auto;
   }
+  .office-values li:last-child { grid-column: 1 / -1; }
   .office-grid--institution .office-copy > .button { order: 4; }
   .lawyer-section .office-profile-role { order: 1; margin: 0; }
   .lawyer-section .office-profile > .office-description { order: 2; margin: 0; }
@@ -75,7 +80,8 @@
   .contact-layout .contact-channels { order: 1; }
   .contact-phone { font-size: clamp(1.35rem, 6vw, 1.75rem); }
   .form-field input, .form-field select, .form-field textarea { text-align: center; }
-  .form-consent > div { flex-direction: column; align-items: center; }
+  .form-consent > div { flex-direction: row; align-items: flex-start; gap: .65rem; }
+  .form-consent label { min-width: 0; text-align: left; }
   .contact-form .button { gap: .5rem; }
   .contact-channel-label { flex-wrap: wrap; }
   .form-handoff .button { white-space: normal; }
@@ -84,5 +90,4 @@
   .brand--footer, .footer-email { justify-content: center; }
   .footer-bottom nav { flex-wrap: wrap; gap: .5rem 1rem; }
   .cookie-notice .button { margin-inline: auto; }
-  .legal-other-areas a { justify-content: center; gap: .75rem; }
 }

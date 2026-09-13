@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { pages } from '../src/pages/pages.mjs';
+import { areas } from '../src/data/site.mjs';
 
 test('all pages render without horizontal overflow or broken local links', async ({ page }) => {
   const errors = [];
@@ -11,7 +12,12 @@ test('all pages render without horizontal overflow or broken local links', async
     await expect(page.locator('h1')).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const hrefs = await page.locator('a[href^="/"]').evaluateAll(links => links.map(link => link.getAttribute('href')));
-    for (const href of hrefs) expect(pages.some(entry => entry.path === href), href).toBe(true);
+    for (const href of hrefs) {
+      const [path, hash] = href.split('#');
+      const target = pages.find(entry => entry.path === path);
+      expect(target, href).toBeTruthy();
+      if (hash) expect(target.content).toContain(`id="${hash}"`);
+    }
   }
   expect(errors).toEqual([]);
   expect((await page.goto('/nao-existe/')).status()).toBe(404);
@@ -45,8 +51,7 @@ test('menu, areas, Escape and keyboard focus work', async ({ page, isMobile }) =
     await menu.click();
   }
   await summary.click();
-  await page.getByRole('link', { name: 'Direito Trabalhista', exact: true }).click();
-  await expect(page).toHaveURL('/areas-de-atuacao/direito-trabalhista/');
+  await expect(page.getByRole('link', { name: 'Direito Trabalhista', exact: true })).toHaveAttribute('href', areas[0].whatsapp);
 });
 
 test('privacy notice persists and can be reset', async ({ page }) => {
@@ -62,7 +67,7 @@ test('privacy notice persists and can be reset', async ({ page }) => {
 });
 
 test('WCAG automated checks cover homepage, menu and content pages', async ({ page, isMobile }) => {
-  for (const url of ['/', '/areas-de-atuacao/', '/contato/', '/cookies/']) {
+  for (const url of ['/', '/o-escritorio/', '/contato/', '/cookies/']) {
     await page.goto(url);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
@@ -91,7 +96,6 @@ test('navigation remains usable without JavaScript', async ({ browser }) => {
   await page.goto('http://127.0.0.1:4321/');
   await expect(page.getByRole('link', { name: 'Contato', exact: true })).toBeVisible();
   await page.locator('summary').click();
-  await page.getByRole('link', { name: 'Direito Criminal', exact: true }).click();
-  await expect(page.locator('h1')).toHaveText('Direito Criminal');
+  await expect(page.getByRole('link', { name: 'Direito Criminal', exact: true })).toHaveAttribute('href', areas.find(area => area.slug === 'direito-criminal').whatsapp);
   await context.close();
 });

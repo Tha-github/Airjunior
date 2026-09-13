@@ -1,5 +1,29 @@
 document.documentElement.classList.add('js');
 
+// The Home button starts hidden in the HTML, avoiding a flash before JS loads.
+const floatingWhatsApp = document.querySelector('.whatsapp-float');
+const activationSection = document.querySelector('.hero') && document.querySelector('#areas-de-atuacao');
+if (floatingWhatsApp && activationSection) {
+  let visibilityFrame;
+  const updateWhatsAppVisibility = () => {
+    visibilityFrame = undefined;
+    const headerBottom = document.querySelector('.site-header').getBoundingClientRect().bottom;
+    floatingWhatsApp.hidden = activationSection.getBoundingClientRect().top > headerBottom;
+  };
+  const scheduleWhatsAppVisibility = () => {
+    if (visibilityFrame === undefined) visibilityFrame = requestAnimationFrame(updateWhatsAppVisibility);
+  };
+  window.addEventListener('scroll', scheduleWhatsAppVisibility, { passive: true });
+  window.addEventListener('resize', scheduleWhatsAppVisibility);
+  window.addEventListener('pageshow', scheduleWhatsAppVisibility);
+  if ('ResizeObserver' in window) {
+    const layoutObserver = new ResizeObserver(scheduleWhatsAppVisibility);
+    layoutObserver.observe(document.querySelector('#conteudo'));
+    layoutObserver.observe(document.querySelector('.site-header'));
+  }
+  updateWhatsAppVisibility();
+}
+
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-navigation');
 const dropdown = document.querySelector('.areas-dropdown');
@@ -40,6 +64,8 @@ document.addEventListener('keydown', event => {
 });
 
 document.addEventListener('click', event => {
+  const navAnchor = event.target.closest('.navigation a[href*="#"]');
+  if (navAnchor && nav.classList.contains('is-open')) closeMenu();
   if (!dropdown.contains(event.target)) dropdown.open = false;
   if (!document.querySelector('.site-header').contains(event.target) && nav.classList.contains('is-open')) closeMenu();
 });

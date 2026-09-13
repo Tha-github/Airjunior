@@ -38,6 +38,7 @@ export function office({ standalone = false } = {}) {
       <header class="office-heading">
         <p class="eyebrow"><span></span>O ADVOGADO</p>
         <h2 id="lawyer-title">${site.lawyer}</h2>
+        <p class="lawyer-registration-mobile">${site.registration}</p>
       </header>
         <figure class="office-figure">
           <div class="office-photo">${visual}</div>
