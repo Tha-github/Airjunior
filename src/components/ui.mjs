@@ -1,3 +1,4 @@
+let goldIconId = 0;
 export const icon = (name, className = '') => {
   const paths = {
     arrow: '<path d="M4 12h15m-6-6 6 6-6 6"/>',
@@ -10,12 +11,13 @@ export const icon = (name, className = '') => {
     calendar: '<rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4m10-4v4M3 10h18m-13 5 3 3 5-5"/>',
     shield: '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-5"/>',
     pin: '<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
-    whatsapp: '<path d="M20.5 11.6a8.5 8.5 0 0 1-12.7 7.5L3 20.5l1.4-4.7A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M8 7.5c-.5 0-1 1-1 1.7 0 2.6 3.2 5.8 5.8 6.3.9.2 2.2-.6 2.5-1.4l-2.4-1.4-.9 1c-1.2-.5-2.7-2-3.2-3.2l.9-.8L8.5 7.5Z"/>',
+    whatsapp: '<path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/><path transform="translate(1.5 -.5)" d="m8.5 7.5 1.3 2.4-1 1a8.3 8.3 0 0 0 3.3 3.3l1-1 2.4 1.3c0 1.1-.8 2-1.9 2-3.6-.3-6.8-3.5-7.1-7.1 0-1.1.9-1.9 2-1.9Z"/>',
   };
-  return `<svg class="icon ${className}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.arrow}</svg>`;
+  const gradientId = `gold-icon-${++goldIconId}`;
+  return `<svg style="--icon-gold-stroke: url(#${gradientId})" class="icon ${className}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="var(--gold)"/><stop offset="38%" stop-color="var(--gold-light)"/><stop offset="65%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--gold-shadow)"/></linearGradient></defs>${paths[name] || paths.arrow}</svg>`;
 };
 
-export const brand = (footer = false) => `<a class="brand ${footer ? 'brand--footer' : ''}" href="/" aria-label="AAFJ Advocacia — Início"><span class="brand-mark" aria-hidden="true">A<span>F</span></span><span class="brand-wordmark">AAFJ<span>ADVOCACIA</span></span></a>`;
+export const brand = (footer = false) => `<a class="brand ${footer ? 'brand--footer' : ''}" href="/" aria-label="AAFJ Advocacia — Início"><img class="brand-logo" src="/logo2.png" alt="Air Alves Freitas Júnior — AAFJ Advocacia" width="2170" height="725" decoding="async"></a>`;
 
 export const button = (label, href, secondary = false) => `<a class="button ${secondary ? 'button--secondary' : ''}" href="${href}">${label}${icon('arrow')}</a>`;
 

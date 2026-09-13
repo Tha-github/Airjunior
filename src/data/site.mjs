@@ -4,12 +4,8 @@ export const site = {
   name: 'AAFJ Advocacia',
   lawyer: 'Air Alves Freitas Júnior',
   registration: 'OAB/RS 93.942',
-  // Foto oficial futura: { src: '/images/air-alves-freitas-junior.webp', alt: 'Air Alves Freitas Júnior', width: 960, height: 1200 }.
-  // Manter null enquanto o cliente não fornecer o arquivo e suas dimensões reais.
-  portrait: null,
-  // Foto específica da seção institucional, com src, alt, width e height reais.
-  // Sem foto específica, a seção utiliza portrait quando ele estiver preenchido.
-  officePhoto: null,
+  portrait: { src: '/images/image2.jpg', alt: 'Air Alves Freitas Júnior', width: 768, height: 1376 },
+  officePhoto: { src: '/images/image.jpg', alt: 'Air Alves Freitas Júnior', width: 1288, height: 1600 },
   company: 'AIR ALVES FREITAS JUNIOR SOCIEDADE INDIVIDUAL DE ADVOCACIA',
   companyRegistration: 'OAB/RS 9.410',
   phone: '(51) 99386-9229',
@@ -20,7 +16,6 @@ export const site = {
   socials: [
     ['Instagram', 'https://www.instagram.com/aafjr_advocacia/'],
     ['Facebook', 'https://www.facebook.com/profile.php?id=100083234796826'],
-    ['Threads', 'https://www.threads.com/@aafjr_advocacia'],
   ],
 };
 

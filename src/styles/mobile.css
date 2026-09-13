@@ -1,0 +1,88 @@
+/* Mobile composition only; tablet and desktop retain their existing rules. */
+@media (max-width: 39.999rem) {
+  .principles-band { display: none; }
+  main, .site-footer, .cookie-notice { text-align: center; }
+  .eyebrow, .lead, .hero-description, .areas-description, .office-profile,
+  .contact-heading, .prose { margin-inline: auto; }
+  .eyebrow, .intro-actions, .social-links, .office-location,
+  .contact-channel-label, .footer-bottom nav, .legal-breadcrumb ol,
+  .legal-signature { justify-content: center; }
+  .button { max-width: 100%; }
+  .intro-actions, .areas-contact, .card--detail { align-items: center; }
+  .card--detail > .card-area-icon { align-self: center; }
+  .card, .contact-panel { text-align: center; }
+  .card { justify-items: center; }
+  .card h2 { grid-column: 1 / -1; }
+  .card > .icon:last-child { grid-column: 1 / -1; justify-self: center; }
+  .areas-contact .button, .contact-panel .button { margin-inline: auto; }
+
+  .header-inner { flex-direction: row; justify-content: space-between; gap: .75rem; padding-block: .75rem; }
+  .navigation, html:not(.js) .navigation { align-items: center; text-align: center; max-height: calc(100dvh - 10rem); }
+  .navigation > a, .navigation summary, .dropdown-panel a { justify-content: center; }
+  .areas-dropdown { width: 100%; }
+  .dropdown-panel { margin-inline: auto; }
+  .menu-open .site-header { z-index: 50; }
+  .menu-open .header-inner > .brand, .menu-open .menu-toggle { position: relative; z-index: 2; }
+  .navigation.is-open {
+    position: fixed; inset: 0; z-index: 1; width: 100%; height: 100dvh;
+    max-height: none; padding: 7rem var(--gutter) max(2rem, env(safe-area-inset-bottom));
+    overflow-y: auto; overscroll-behavior: contain; border: 0;
+  }
+
+  /* Flatten presentation wrappers only at this breakpoint to reorder content. */
+  .hero-grid, .office-grid, .lawyer-section .office-grid {
+    display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  }
+  .hero-copy, .office-grid .office-copy, .lawyer-section .office-profile { display: contents; }
+  .hero .eyebrow { order: 0; margin-bottom: 0; }
+  .hero h1 { order: 1; margin-bottom: 0; }
+  .hero-description { order: 2; margin-bottom: 0; }
+  .hero-profile { order: 3; margin-inline: auto; }
+  .hero-actions { order: 4; align-items: center; }
+  .hero-identification, .office-lawyer { align-items: center; padding-inline: 1rem; }
+  .hero-identification, .office-lawyer { border-left: 0; border-image: none; }
+
+  .principles-list { display: flex; justify-content: center; gap: 0; padding-block: 1rem; }
+  .principles-list li, .principles-list li:nth-child(odd) {
+    min-width: 0; justify-content: center; gap: .15rem; padding: .25rem .2rem;
+    font-size: clamp(.4375rem, 2.15vw, .625rem); white-space: nowrap;
+    border-right: 1px solid var(--line);
+  }
+  .principles-list li:last-child { border-right: 0; }
+  .principle-mark { width: .2rem; height: .2rem; }
+
+  .office-grid > .office-heading { order: 0; width: 100%; }
+  .office-grid--institution .office-description { order: 1; }
+  .office-building { order: 2; align-self: center; }
+  .office-grid--institution .office-values {
+    order: 3; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr) minmax(0, 1.2fr) minmax(0, 1.6fr) minmax(0, 1.6fr);
+    width: 100%; gap: .35rem; margin: 0;
+  }
+  .office-values li {
+    min-width: 0; flex-direction: column; justify-content: flex-start;
+    gap: .5rem; padding-block: .5rem; font-size: clamp(.45rem, 2.3vw, .625rem);
+    line-height: 1.5; overflow-wrap: anywhere; hyphens: auto;
+  }
+  .office-grid--institution .office-copy > .button { order: 4; }
+  .lawyer-section .office-profile-role { order: 1; margin: 0; }
+  .lawyer-section .office-profile > .office-description { order: 2; margin: 0; }
+  .lawyer-section .office-figure { order: 3; margin: 0 auto; }
+  .lawyer-section .office-credentials { order: 4; margin: 0; width: 100%; }
+  .lawyer-section .office-copy > .button { order: 5; margin-top: 0; }
+
+  .contact-form-panel, .contact-whatsapp, .map-copy { padding: 1.25rem; }
+  .contact-layout .contact-form-panel { order: 0; }
+  .contact-layout .contact-channels { order: 1; }
+  .contact-phone { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+  .form-field input, .form-field select, .form-field textarea { text-align: center; }
+  .form-consent > div { flex-direction: column; align-items: center; }
+  .contact-form .button { gap: .5rem; }
+  .contact-channel-label { flex-wrap: wrap; }
+  .form-handoff .button { white-space: normal; }
+  .footer-main, .footer-bottom { justify-items: center; align-items: center; }
+  .footer-main > div { min-width: 0; width: 100%; }
+  .brand--footer, .footer-email { justify-content: center; }
+  .footer-bottom nav { flex-wrap: wrap; gap: .5rem 1rem; }
+  .cookie-notice .button { margin-inline: auto; }
+  .legal-other-areas a { justify-content: center; gap: .75rem; }
+}

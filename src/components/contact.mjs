@@ -13,7 +13,6 @@ export function contact({ standalone = false } = {}) {
         <aside class="contact-channels" aria-label="Canais de atendimento">
           <div class="contact-whatsapp"><span class="contact-channel-label">${icon('whatsapp')} ATENDIMENTO PELO WHATSAPP</span><a class="contact-phone" href="${site.phoneUrl}" aria-label="Ligar para ${site.phone}">${site.phone}</a><p>Prefere conversar diretamente?<br>Entre em contato com nossa equipe.</p>${button('Fale pelo WhatsApp', site.whatsapp)}</div>
           <div class="contact-channel"><h3>E-mail</h3><a class="contact-email" href="mailto:${site.email}">${site.email}</a></div>
-          <div class="contact-channel"><h3>Nosso endereço</h3><address>${site.address.map(line => `<span>${line}</span>`).join('')}</address><a class="text-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">Ver localização ${icon('northeast')}</a></div>
           <div class="contact-channel"><h3>Acompanhe o escritório</h3><div class="social-links">${site.socials.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}${icon('northeast')}</a>`).join('')}</div></div>
         </aside>
         <div class="contact-form-panel">
