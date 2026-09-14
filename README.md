@@ -11,12 +11,13 @@ Envie também os arquivos gerados (HTML, `styles/`, JavaScript em `scripts/`,
 `favicon.svg` e `.nojekyll`) ao GitHub. Em Settings → Pages, use a publicação
 pela branch com a pasta `/ (root)`.
 
-O comando usa `/Airjunior/` como prefixo do site. Para domínio próprio ou outro
-nome de repositório, defina `BASE_PATH` antes de executar o comando.
-Exemplo no PowerShell para domínio próprio:
+O comando usa `/` como prefixo para o domínio `https://aafjadvocacia.topsitebr.com.br/`.
+Para publicar no endereço do GitHub sem domínio próprio, defina `BASE_PATH` e `SITE_URL`.
+Exemplo no PowerShell:
 
 ```powershell
-$env:BASE_PATH = '/'
+$env:BASE_PATH = '/aafjadvocacia/'
+$env:SITE_URL = 'https://tha-github.github.io/aafjadvocacia/'
 npm run build:pages
 ```
 

@@ -22,7 +22,7 @@ export async function build({ publishRoot = false, basePath = '/' } = {}) {
   await cp(path.join(root, 'public'), dist, { recursive: true });
   await writeFile(path.join(dist, '404.html'), render(pages.find(page => page.path === '/404/')), 'utf8');
   await writeFile(path.join(dist, '.nojekyll'), '', 'utf8');
-  const siteUrl = process.env.SITE_URL || 'https://tha-github.github.io/Airjunior/';
+  const siteUrl = process.env.SITE_URL || 'https://aafjadvocacia.topsitebr.com.br/';
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${new URL(siteUrl).href.replaceAll('&', '&amp;')}</loc></url></urlset>\n`;
   await writeFile(path.join(dist, 'sitemap.xml'), sitemap, 'utf8');
   if (publishRoot) await cp(dist, root, { recursive: true });
@@ -30,5 +30,5 @@ export async function build({ publishRoot = false, basePath = '/' } = {}) {
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const publishRoot = process.argv.includes('--root');
-  await build({ publishRoot, basePath: process.env.BASE_PATH || (publishRoot ? '/Airjunior/' : '/') });
+  await build({ publishRoot, basePath: process.env.BASE_PATH || '/' });
 }
