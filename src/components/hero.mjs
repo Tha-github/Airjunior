@@ -25,7 +25,6 @@ export function hero() {
       </div>
       <figure class="hero-profile">
         <div class="hero-visual${portrait ? ' hero-visual--portrait' : ''}">${visual}</div>
-        <figcaption class="hero-identification"><span>${site.lawyer}</span><span>${site.registration}</span></figcaption>
       </figure>
     </div>
   </section>
