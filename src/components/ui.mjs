@@ -1,6 +1,9 @@
 let goldIconId = 0;
 export const icon = (name, className = '') => {
   const paths = {
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5"/>',
+    facebook: '<path d="M14 21v-8h3l.5-4H14V7c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v2H7v4h3v8"/>',
+    threads: '<path d="M6 18 18 6M6 6h12v12"/>',
     arrow: '<path d="M4 12h15m-6-6 6 6-6 6"/>',
     northeast: '<path d="M6 18 18 6M6 6h12v12"/>',
     chevron: '<path d="m6 9 6 6 6-6"/>',
@@ -17,7 +20,7 @@ export const icon = (name, className = '') => {
   return `<svg style="--icon-gold-stroke: url(#${gradientId})" class="icon ${className}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="var(--gold)"/><stop offset="38%" stop-color="var(--gold-light)"/><stop offset="65%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--gold-shadow)"/></linearGradient></defs>${paths[name] || paths.arrow}</svg>`;
 };
 
-export const brand = (footer = false) => `<a class="brand ${footer ? 'brand--footer' : ''}" href="/" aria-label="AAFJ Advocacia — Início"><img class="brand-logo" src="/logo2.png" alt="Air Alves Freitas Júnior — AAFJ Advocacia" width="2170" height="725" decoding="async"></a>`;
+export const brand = (footer = false) => `<a class="brand ${footer ? 'brand--footer' : ''}" href="/" aria-label="AAFJ Advocacia — Início"><img class="brand-logo" src="/aafjmarcadagua.png" alt="AAFJ Advocacia" width="724" height="300" decoding="async"></a>`;
 
 export const button = (label, href, secondary = false) => `<a class="button ${secondary ? 'button--secondary' : ''}" href="${href}">${label}${icon('arrow')}</a>`;
 

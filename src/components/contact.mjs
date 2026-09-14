@@ -12,8 +12,9 @@ export function contact({ standalone = false } = {}) {
       <div class="contact-layout">
         <aside class="contact-channels" aria-label="Canais de atendimento">
           <div class="contact-whatsapp"><span class="contact-channel-label">${icon('whatsapp')} ATENDIMENTO PELO WHATSAPP</span><a class="contact-phone" href="${site.phoneUrl}" aria-label="Ligar para ${site.phone}">${site.phone}</a><p>Prefere conversar diretamente?<br>Entre em contato com nossa equipe.</p>${button('Fale pelo WhatsApp', site.whatsapp)}</div>
+          <div class="contact-channel"><h3>Telefone comercial</h3><a href="${site.businessPhoneUrl}">${site.businessPhone}</a></div>
           <div class="contact-channel"><h3>E-mail</h3><a class="contact-email" href="mailto:${site.email}">${site.email}</a></div>
-          <div class="contact-channel"><h3>Acompanhe o escritório</h3><div class="social-links">${site.socials.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}${icon('northeast')}</a>`).join('')}</div></div>
+          <div class="contact-channel"><h3>Acompanhe o escritório</h3><div class="social-links">${site.socials.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}${icon(label.toLowerCase())}</a>`).join('')}</div></div>
         </aside>
         <div class="contact-form-panel">
           <h3>Como podemos ajudar?</h3><p class="form-introduction" id="form-instructions">Preencha os campos abaixo para preparar sua mensagem. Você poderá revisá-la e confirmar o envio no WhatsApp.</p>
@@ -35,7 +36,7 @@ export function contact({ standalone = false } = {}) {
           <noscript><p>Para preparar a mensagem pelo formulário, ative o JavaScript. Você também pode <a href="${site.whatsapp}">falar diretamente pelo WhatsApp</a> ou <a href="mailto:${site.email}">enviar um e-mail</a>.</p></noscript>
         </div>
       </div>
-      <div class="contact-map" aria-labelledby="map-title"><div class="map-copy"><p class="eyebrow">PORTO ALEGRE · RS</p><h3 id="map-title">Encontre o escritório</h3><p>Av. Baltazar de Oliveira Garcia, nº 950, sala 301<br>Bairro Sarandi · CEP 91.130-000</p><a class="text-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">Abrir no Google Maps ${icon('northeast')}</a></div><div class="map-frame"><div class="map-placeholder">${icon('pin')}<p>Veja nossa localização no mapa.</p><small>Ao carregar, você acessa um serviço externo do Google, sujeito às suas práticas de privacidade e cookies.</small><button class="button button--secondary" type="button" data-load-map data-map-src="https://www.google.com/maps?q=${mapQuery}&output=embed" hidden>Carregar mapa ${icon('arrow')}</button><noscript><p>Utilize o link “Abrir no Google Maps” para ver a localização.</p></noscript></div><p class="map-status" role="status" hidden></p></div></div>
+      <div class="contact-map" aria-labelledby="map-title"><div class="map-copy"><p class="eyebrow">PORTO ALEGRE · RS</p><h3 id="map-title">Encontre o escritório</h3><p>${site.address.join('<br>')}</p><a class="text-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">Abrir no Google Maps ${icon('northeast')}</a></div><div class="map-frame"><div class="map-placeholder">${icon('pin')}<p>Veja nossa localização no mapa.</p><small>Ao carregar, você acessa um serviço externo do Google, sujeito às suas práticas de privacidade e cookies.</small><button class="button button--secondary" type="button" data-load-map data-map-src="https://www.google.com/maps?q=${mapQuery}&output=embed" hidden>Carregar mapa ${icon('arrow')}</button><noscript><p>Utilize o link “Abrir no Google Maps” para ver a localização.</p></noscript></div><p class="map-status" role="status" hidden></p></div></div>
     </div>
   </section>`;
 }

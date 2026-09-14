@@ -4,16 +4,19 @@ export const site = {
   registration: 'OAB/RS 93.942',
   portrait: { src: '/images/image2.jpg', alt: 'Air Alves Freitas Júnior', width: 768, height: 1376 },
   officePhoto: { src: '/images/image.jpg', alt: 'Air Alves Freitas Júnior', width: 1288, height: 1600 },
-  company: 'AIR ALVES FREITAS JUNIOR SOCIEDADE INDIVIDUAL DE ADVOCACIA',
+  company: 'Air Alves Freitas Júnior Sociedade Individual de Advocacia',
   companyRegistration: 'OAB/RS 9.410',
   phone: '(51) 99386-9229',
   phoneUrl: 'tel:+5551993869229',
+  businessPhone: '(51) 3391-9251',
+  businessPhoneUrl: 'tel:+555133919251',
   whatsapp: 'https://wa.me/5551993869229',
-  email: 'Airjunior_adv@yahoo.com.br',
-  address: ['Av. Baltazar de Oliveira Garcia, nº 950, sala 301', 'Bairro Sarandi · Porto Alegre – RS', 'CEP 91.130-000'],
+  email: 'contato@aafjadvocacia.com.br',
+  address: ['Avenida Baltazar de Oliveira Garcia, 950', 'Sarandi, Porto Alegre/RS', 'CEP 91130-000', 'Brasil'],
   socials: [
     ['Instagram', 'https://www.instagram.com/aafjr_advocacia/'],
     ['Facebook', 'https://www.facebook.com/profile.php?id=100083234796826'],
+    ['Threads', 'https://www.threads.com/@aafjr_advocacia'],
   ],
 };
 

@@ -73,6 +73,6 @@ test('without JavaScript no form data can be submitted and direct contact remain
   await page.goto('http://127.0.0.1:4321/contato/');
   await expect(page.getByRole('button', { name: 'Enviar mensagem', exact: true })).toBeDisabled();
   await expect(page.getByRole('link', { name: 'falar diretamente pelo WhatsApp' })).toBeVisible();
-  await expect(page.locator('.contact-email')).toHaveAttribute('href', 'mailto:Airjunior_adv@yahoo.com.br');
+  await expect(page.locator('.contact-email')).toHaveAttribute('href', 'mailto:contato@aafjadvocacia.com.br');
   await context.close();
 });
